@@ -11,6 +11,6 @@ defined("DS") ? NULL : define("DS",DIRECTORY_SEPARATOR);
 
 //CREAR RUTAS RELATIVAS
 
-defined ("VIEW_FRONT")? NULL: define ("VIEW_FRONT",__DIR__. DS . "views/front");
-defined ("VIEW_BACK")? NULL: define ("VIEW_BACK",__DIR__. DS ."views/back");
+defined("VIEW_FRONT") ? NULL : define("VIEW_FRONT",__DIR__ . DS . "views/front");
+defined("VIEW_BACK") ? NULL: define("VIEW_BACK",__DIR__ . DS ."views/back");
 ?>
