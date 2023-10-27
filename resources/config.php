@@ -1,6 +1,6 @@
 <?php
 ob_start();
-
+session_start();
 //if (a>b) {
     # code...
 //}
@@ -23,9 +23,9 @@ defined("DB_NAME") ? NULL : define("DB_NAME", "gestor_Laboratorio_2023");
 
 $conexion = mysqli_connect(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 
-if($conexion){
+/*if($conexion){
     echo 'estas conectado';
-}
+}*/
 
 require_once("function.php");
 ?>
