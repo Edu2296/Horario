@@ -10,13 +10,14 @@ function query($sql){
     global $conexion;
     return mysqli_query($conexion,$sql);
 }
+
 function confirmar($query){
     global $conexion;
     if(!$query){
         die("Fallo en la conexion" . mysqli_error($conexion));
     }
 }
-function fecth_array($query){
+function fetch_array($query){
     return mysqli_fetch_array($query);
 }
 //- limpiar el string del input - para que no pase sql injections
@@ -24,19 +25,27 @@ function limpiar_string($str){
     global $conexion;
     return mysqli_real_escape_string($conexion, $str);
 }
+
+//REDIRECCIONAR MENSAJE
+function redirect($location){
+    header("Location: $location");
+}
+
+//-- MOSTRAR MENSAJE 
+function mostrar_msj(){
+    if(isset($_SESSION['mensaje']))
+    {
+        echo $_SESSION['mensaje'];
+        unset($_SESSION['mensaje']);
+    }
+}
+
 //--VARIABLE DE ENVIAR MENSAJE DE SESION PARA MOSTRAR MENSAJE
 function set_mensaje($msj){
     if(!empty($msj)){
         $_SESSION['mensaje']=$msj;
     }else{
-        $msj='';
-    }
-}
-//-- MOSTRAR MENSAJE 
-function mostrar_msj(){
-    if(isset($_SESSION['mensaje'])){
-        echo $_SESSION['mensaje'];
-        unset($_SESSION['mensaje']);
+        $msj = '';
     }
 }
 //--MENSAJE DE REGISTRO DE LABORATORIO
@@ -58,7 +67,7 @@ function show_laboratorio(){
     $query = query("SELECT * FROM laboratorio");
     confirmar($query);
     //print_r($query);
-    while($fila= fecth_array($query)){
+    while($fila= fetch_array($query)){
         // print_r($fila);
         $laboratorio = <<<DELIMITADOR
         <li class="nav-item">
@@ -93,7 +102,7 @@ function laboratorio_agregar(){
 
        confirmar($query);
        set_mensaje(display_success_msj('Laboratorio registrado correctamente'));
-       header("Location: index.php?laboratorio_registrar");
+       header("Location: index.php?laboratorio");
   
     }
 }
@@ -101,7 +110,7 @@ function laboratorio_agregar(){
 function show_laboratorio_admin(){
     $query=query("SELECT * FROM laboratorio");
     confirmar($query);
-    while($fila= fecth_array($query)){
+    while($fila= fetch_array($query)){
         $laboratorio=<<<DELIMITADOR
         <tr>
         <td >{$fila['lab_Codigo']}</td>
@@ -114,11 +123,37 @@ function show_laboratorio_admin(){
         <td>{$fila['lab_SoftwareInstalado']}</td>
 
         <!---PARA ACTULIZAR CON EL METODO GET MANIPULAR-->
-        <td> <a href="index.php?laboratorio&editar={$fila['lab_Codigo']}" class="btn btn-small btn-warning">Editar</a></td>
+        <td> <a href="index.php?laboratorio_editar={$fila['lab_Codigo']}" class="btn btn-small btn-warning">Editar</a></td>
         <td><a href="#" class="btn btn-small btn-danger">Eliminar</a></td>
     </tr>
 DELIMITADOR;
         echo $laboratorio;
+    }
+}
+//funcion de actulializar laboratorio
+
+function laboratorio_actualizar($id){
+    if(isset($_POST['actualizar'])){
+
+       $lab_CodigoLab = strtoupper(limpiar_string(trim($_POST['lab_CodigoLab'])));
+      $lab_NombreLab = strtoupper(limpiar_string(trim($_POST['lab_NombreLab'])));
+      $lab_Pabellon = strtoupper(limpiar_string(trim($_POST['lab_Pabellon'])));
+      $lab_Piso = strtoupper(limpiar_string(trim($_POST['lab_Piso'])));
+      $lab_Aforo = strtoupper(limpiar_string(trim($_POST['lab_Aforo'])));
+      $lab_NumeroPC = strtoupper(limpiar_string(trim($_POST['lab_NumeroPC'])));
+      $lab_SoftwareInstalado = strtoupper(limpiar_string(trim($_POST['lab_SoftwareInstalado'])));
+
+       $query = query("UPDATE laboratorio SET lab_CodigoLab = '{$lab_CodigoLab}',lab_NombreLab = '{$lab_NombreLab}',
+       lab_Pabellon = '{$lab_Pabellon}',
+       lab_Piso = '{$lab_Piso}',
+       lab_Aforo = '{$lab_Aforo}',
+       lab_NumeroPC = '{$lab_NumeroPC}',
+       lab_SoftwareInstalado ='{$lab_SoftwareInstalado}' WHERE lab_Codigo = {$id}"); 
+
+       confirmar($query);
+       set_mensaje(display_success_msj("Laboratorio actualizado correctamentamente."));
+       //redirect("index.php?laboratorio_editar");
+       header("Location: index.php?laboratorio_editar");
     }
 }
 
