@@ -124,7 +124,7 @@ function show_laboratorio_admin(){
 
         <!---PARA ACTULIZAR CON EL METODO GET MANIPULAR-->
         <td> <a href="index.php?laboratorio&editar={$fila['lab_Codigo']}" class="btn btn-small btn-warning">Editar</a></td>
-        <td><a href="#" class="btn btn-small btn-danger">Eliminar</a></td>
+        <td><a href="javascript:void(0)" class="delete_link btn btn-small btn-danger" rel="{$fila['lab_Codigo']}">Eliminar</a></td>
     </tr>
 DELIMITADOR;
         echo $laboratorio;
