@@ -123,7 +123,7 @@ function show_laboratorio_admin(){
         <td>{$fila['lab_SoftwareInstalado']}</td>
 
         <!---PARA ACTULIZAR CON EL METODO GET MANIPULAR-->
-        <td> <a href="index.php?laboratorio_editar={$fila['lab_Codigo']}" class="btn btn-small btn-warning">Editar</a></td>
+        <td> <a href="index.php?laboratorio&editar={$fila['lab_Codigo']}" class="btn btn-small btn-warning">Editar</a></td>
         <td><a href="#" class="btn btn-small btn-danger">Eliminar</a></td>
     </tr>
 DELIMITADOR;
@@ -153,7 +153,7 @@ function laboratorio_actualizar($id){
        confirmar($query);
        set_mensaje(display_success_msj("Laboratorio actualizado correctamentamente."));
        //redirect("index.php?laboratorio_editar");
-       header("Location: index.php?laboratorio_editar");
+       header("Location: index.php?laboratorio");
     }
 }
 
