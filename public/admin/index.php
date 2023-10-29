@@ -36,15 +36,8 @@
                    // echo 'estas en laboratorio';
                    include(VIEW_BACK . DS . "laboratorio.php");
                 }  
-               /* if(isset($_GET['laboratorio_registrar'])){
-                    // echo 'estas en laboratorio';
-                    include(VIEW_BACK . DS . "laboratorio_registrar.php");
-                 }
-                 if(isset($_GET['laboratorio_editar'])){
-                    // echo 'estas en laboratorio';
-                    include(VIEW_BACK . DS . "laboratorio_editar.php");
-                 }
-                */
+            
+            
                 //---VARIABLE DE SESION
                 ?>
                 <!-- /.container-fluid -->

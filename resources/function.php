@@ -59,7 +59,7 @@ DELIMITADOR;
     return $mensaje;
 }
 
-///---FUNCIONES FRONT
+///---FUNCIONES FRONT DEL SISTEMA
 function show_laboratorio(){
     //global $conexion;
     ///$query ="SELECT * FROM laboratorio";
@@ -81,11 +81,9 @@ DELIMITADOR;
 }
     
 ///---FUNCIONES BACK
-//crea una funcion para registar los datos en mysql
-
+//crea una funcion para registar los datos en mysql LABORATORIO
 function laboratorio_agregar(){
     if(isset($_POST['registrar'])){
-       
        $lab_CodigoLab = strtoupper(limpiar_string(trim($_POST['lab_CodigoLab'])));
        $lab_NombreLab = strtoupper(limpiar_string(trim($_POST['lab_NombreLab'])));
        $lab_Pabellon = strtoupper(limpiar_string(trim($_POST['lab_Pabellon'])));
@@ -93,17 +91,14 @@ function laboratorio_agregar(){
        $lab_Aforo = strtoupper(limpiar_string(trim($_POST['lab_Aforo'])));
        $lab_NumeroPC = strtoupper(limpiar_string(trim($_POST['lab_NumeroPC'])));
        $lab_SoftwareInstalado = strtoupper(limpiar_string(trim($_POST['lab_SoftwareInstalado'])));
-
        $query = query("INSERT INTO laboratorio (lab_CodigoLab,lab_NombreLab,lab_Pabellon,lab_Piso,lab_Aforo,lab_NumeroPc,lab_SoftwareInstalado) VALUES 
        ('{$lab_CodigoLab}','{$lab_NombreLab}',
        '{$lab_Pabellon}','{$lab_Piso}',
        '{$lab_Aforo}','{$lab_NumeroPC}',
        '{$lab_SoftwareInstalado}')");
-
        confirmar($query);
        set_mensaje(display_success_msj('Laboratorio registrado correctamente'));
        header("Location: index.php?laboratorio");
-  
     }
 }
 //crea una funcion para llamar los datos de mysql
@@ -121,7 +116,6 @@ function show_laboratorio_admin(){
         <td>{$fila['lab_Aforo']} </td>
         <td>{$fila['lab_NumeroPC']}</td>
         <td>{$fila['lab_SoftwareInstalado']}</td>
-
         <!---PARA ACTULIZAR CON EL METODO GET MANIPULAR-->
         <td> <a href="index.php?laboratorio&editar={$fila['lab_Codigo']}" class="btn btn-small btn-warning">Editar</a></td>
         <td><a href="javascript:void(0)" class="delete_link btn btn-small btn-danger" rel="{$fila['lab_Codigo']}">Eliminar</a></td>
@@ -131,7 +125,6 @@ DELIMITADOR;
     }
 }
 //funcion de actulializar laboratorio
-
 function laboratorio_actualizar($id){
     if(isset($_POST['actualizar'])){
 
@@ -142,7 +135,6 @@ function laboratorio_actualizar($id){
       $lab_Aforo = strtoupper(limpiar_string(trim($_POST['lab_Aforo'])));
       $lab_NumeroPC = strtoupper(limpiar_string(trim($_POST['lab_NumeroPC'])));
       $lab_SoftwareInstalado = strtoupper(limpiar_string(trim($_POST['lab_SoftwareInstalado'])));
-
        $query = query("UPDATE laboratorio SET lab_CodigoLab = '{$lab_CodigoLab}',lab_NombreLab = '{$lab_NombreLab}',
        lab_Pabellon = '{$lab_Pabellon}',
        lab_Piso = '{$lab_Piso}',
@@ -156,5 +148,16 @@ function laboratorio_actualizar($id){
        header("Location: index.php?laboratorio");
     }
 }
+///ELIMNAR LABORATORIO - FUNCION GLOBAL PARA ELIMNAR DATA DE CUALQUIER TABLA
+function elemento_delete($tabla, $campo){
+    if(isset($_GET['delete'])){
+       $id= limpiar_string(trim($_GET['delete']));
 
+       $query= query("DELETE FROM {$tabla} WHERE {$campo} = {$id}");
+
+       confirmar($query);
+       set_mensaje(display_success_msj('Elemento eliminado correctamente'));
+       redirect("index.php?{$tabla}");
+    }
+}
 ?>

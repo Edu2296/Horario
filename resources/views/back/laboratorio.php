@@ -49,7 +49,7 @@
                          </label>
                          <input type="text" class="form-control" name="lab_CodigoLab" id="lab_CodigoLab" style="text-transform:uppercase;" required placeholder="'S01001'">
                             <label for="lab_NombreLab">
-                                Numero de laboratorio
+                              Laboratorio
                             </label>
                              <input type="text" class="form-control" name="lab_NombreLab" id="lab_NombreLab" style="text-transform:uppercase;" required placeholder="'1'">
 
@@ -101,6 +101,10 @@
               if(isset($_GET['editar'])){
                 include(VIEW_BACK . DS . "laboratorio_editar.php");
             }
+
+            elemento_delete('laboratorio','lab_Codigo');
+
+
             ?>
     </div>
 

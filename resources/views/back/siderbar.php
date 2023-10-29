@@ -23,27 +23,20 @@
 
 <!-- Heading -->
 <div class="sidebar-heading">
-    Interface
+   <!-- Interface-->
 </div>
 <!--MANDA DIRECTO A LABORATORIO-->
-<li class="nav-item active">
-    <a class="nav-link" href="index.php?laboratorio">
-    <i class="fas fa-chalkboard"></i>
-        <span>Laboratorio</span></a>
-        
-</li>
 <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
         aria-expanded="true" aria-controls="collapseTwo">
-        <i class="fas fa-fw fa-cog"></i>
-        <span>Components</span>
+        <i class="fas fa-chalkboard"></i>
+        <span>LABORATORIOS </span>
     </a>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Components:</h6>
-            <a class="collapse-item" href="buttons.html">Buttons</a>
-            <a class="collapse-item" href="cards.html">Cards</a>
+            <a class="collapse-item" href="index.php?laboratorio">Laboratorio</a>
+            <a class="collapse-item" href="index.php?uso_laboratorio">Prestamos</a>
         </div>
     </div>
 </li>
