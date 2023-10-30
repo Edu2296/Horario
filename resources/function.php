@@ -160,4 +160,7 @@ function elemento_delete($tabla, $campo){
        redirect("index.php?{$tabla}");
     }
 }
+
+//// horarios
+
 ?>

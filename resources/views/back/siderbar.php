@@ -28,15 +28,44 @@
 <!--MANDA DIRECTO A LABORATORIO-->
 <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLaboratorio"
         aria-expanded="true" aria-controls="collapseTwo">
         <i class="fas fa-chalkboard"></i>
-        <span>LABORATORIOS </span>
+        <span>Laboratorios </span>
     </a>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+    <div id="collapseLaboratorio" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="index.php?laboratorio">Laboratorio</a>
-            <a class="collapse-item" href="index.php?uso_laboratorio">Prestamos</a>
+            <a class="collapse-item" href="index.php?usolaboratorio">Prestamos</a>
+        </div>
+    </div>
+</li>
+<!--Estudiantes y docentes-->
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsuarios"
+        aria-expanded="true" aria-controls="collapseTwo">
+        <i class="fas fa-chalkboard"></i>
+        <span>Usuario de FI</span>
+    </a>
+    <div id="collapseUsuarios" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="index.php?docentes">Docentes</a>
+            <a class="collapse-item" href="index.php?estudiantes">Estudiantes</a>
+            <a class="collapse-item" href="index.php?curso">Curso</a>
+        </div>
+    </div>
+</li>
+<!--Horarios de laboratorio-->
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseHorario"
+        aria-expanded="true" aria-controls="collapseTwo">
+        <i class="fas fa-chalkboard"></i>
+        <span>Horario de laboratorio</span>
+    </a>
+    <div id="collapseHorario" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="index.php?horario">Generar Horario</a>
+            <a class="collapse-item" href="index.php?horariovista">Horarios </a>
         </div>
     </div>
 </li>

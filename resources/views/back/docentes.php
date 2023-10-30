@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-         <h1 class="h2 mb-0 text-gray-800">Laboratorios de Computo</h1>
+         <h1 class="h2 mb-0 text-gray-800">Docentes de FI</h1>
     </div>
     <!--TABLA DE CONTENIDO DE DATOS DE LABORATORIO-->
     <div class="row ">
@@ -22,7 +22,7 @@
                 <tbody>
                     <!--Esto llama para mostrar los datos almacenados-->
                     <?php
-                    show_laboratorio_admin();
+                    //show_laboratorio_admin();
                     ?>
                 </tbody>
             </table>

@@ -36,8 +36,18 @@
                    // echo 'estas en laboratorio';
                    include(VIEW_BACK . DS . "laboratorio.php");
                 }  
-            
-            
+                if(isset($_GET['docentes'])){
+                    // echo 'estas en laboratorio';
+                    include(VIEW_BACK . DS . "docentes.php");
+                 }  
+                 if(isset($_GET['horario'])){
+                    // echo 'estas en laboratorio';
+                    include(VIEW_BACK . DS . "horario.php");
+                 }  
+                 if(isset($_GET['horariovista'])){
+                    // echo 'estas en laboratorio';
+                    include(VIEW_BACK . DS . "horariovista.php");
+                 }  
                 //---VARIABLE DE SESION
                 ?>
                 <!-- /.container-fluid -->
